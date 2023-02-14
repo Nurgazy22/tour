@@ -13,8 +13,8 @@ class RegistrationSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
     password = serializers.CharField(min_length=4, required=True)
     password_confirm = serializers.CharField(min_length=4, required=True)
-    name = serializers.CharField(required=True)
-    phone_number = serializers.CharField(required=True)
+    # name = serializers.CharField(required=True)
+    # phone_number = serializers.CharField(required=True)
 
     def validate_email(self, email):
         if User.objects.filter(email=email).exists():

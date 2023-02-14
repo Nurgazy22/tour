@@ -30,9 +30,9 @@ schema_view = get_schema_view(openapi.Info(title='Документация по 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('docs/', schema_view.with_ui('swagger')),
-    path('api/v1/', include('Packets.urls')),
-    path('api/v1/', include('Reviews.urls')),
-    path('api/v1/', include('Payments.urls')),
+    # path('api/v1/', include('Packets.urls')),
+    # path('api/v1/', include('Reviews.urls')),
+    # path('api/v1/', include('Payments.urls')),
     path('api/v1/', include('account.urls')),
 ]
 

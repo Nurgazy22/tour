@@ -1,14 +1,14 @@
 from django.db import models
-from Reviews.models import Rating, Comment
+# from Reviews.models import Rating, Comment
 
 
 
 
 
 class Packet(models.Model):
-    # season = models.CharField(max_length=20)  change to category(7 seasons)
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, related_name='packets') #change to category(7 seasons)
     title = models.CharField(max_length=250)
-    image = models.ImageField(upload_to='static/packet_image/')  #Imagefield correct
+    image = models.ImageField(upload_to='media/packet_image/')  #Imagefield correct
     price = models.IntegerField() # цена
     description = models.TextField() # описание
     date_start = models.DateTimeField() # начало
@@ -21,7 +21,13 @@ class Packet(models.Model):
     schedule = models.FileField()  #план тура
 
     def __str__(self):
-        return f"{self.title}, {self.season}" 
+        return f"{self.title}, {self.category}" 
+
+
+class Category(models.Model):
+    name = models.CharField(max_length=200)
+
+    
 
 class PacketImage(models.Model):
     packet = models.ForeignKey(Packet, on_delete=models.CASCADE, related_name='images')
