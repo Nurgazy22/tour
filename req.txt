@@ -4,3 +4,6 @@ psycopg2-binary
 python-decouple
 drf_yasg
 djangorestframework-simplejwt
+celery
+django-cors-headers
+redis
